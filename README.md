@@ -12,8 +12,11 @@ This project has four classes (Job, NaivePriorityQueue, MaxHeap and PriorityQueu
 and their corresponding tests. Run each one in this order, until each passes:
 
 `python3 -m unittest test_job`
+
 `python3 -m unittest test_naive_priority_queue`
+
 `python3 -m unittest test_max_heap`
+
 `python3 -m unittest test_priority_queue`
 
 Open each pair of test and corresponding implementation files (eg *test_priority_queue.py* and *priority_queue.py*) in your editor of choice. Modify the implementations to pass their first test. After each test passes, create a commit. Then, uncomment the next test, and re-run the test suite. Implement what's necessary to pass the test, and then repeat this process.
