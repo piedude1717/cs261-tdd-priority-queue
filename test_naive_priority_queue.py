@@ -25,6 +25,7 @@ class TestNaivePriorityQueue(unittest.TestCase):
         """
         A NaivePriorityQueue uses a list to store its data.
         """
+        #hi
         pq = NaivePriorityQueue()
         self.assertEqual(list, type(pq.data))
 
