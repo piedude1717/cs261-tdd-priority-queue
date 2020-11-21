@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/cs261-tdd-priority-queue.iml" filepath="$PROJECT_DIR$/.idea/cs261-tdd-priority-queue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../cs261-tdd-queue/.idea/cs261-tdd-queue.iml" filepath="$PROJECT_DIR$/../cs261-tdd-queue/.idea/cs261-tdd-queue.iml" />
     </modules>
   </component>
 </project>

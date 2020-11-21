@@ -4,4 +4,12 @@
 
 class NaivePriorityQueue:
 
-    pass
+    def __init__(self, data=None):
+        self.data = []
+        self.data.append(data)
+
+    def enqueue(self, item):
+        return self.data.append(item)
+
+    def dequeue(self):
+        return self.data.pop()

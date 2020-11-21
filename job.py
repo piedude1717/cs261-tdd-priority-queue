@@ -9,7 +9,7 @@ class Job:
         self.message = message
 
     def __eq__(self, other):
-        return self.priority == other.priority
+        return self.priority is other.priority
 
     def __lt__(self, other):
         return self.priority < other.priority
