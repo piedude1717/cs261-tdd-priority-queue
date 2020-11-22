@@ -385,24 +385,24 @@ class TestMaxHeap(unittest.TestCase):
         self.assertFalse(h._has_left_child(3))
         self.assertFalse(h._has_left_child(4))
 
-    # def test_has_right_child(self):
-    #     """
-    #     True when an element's right child isn't None. Otherwise False.
-    #     """
-    #     h = MaxHeap()
-    #     fake_root = fake_value()
-    #     fake_left_child = fake_value()
-    #     fake_right_child = fake_value()
-    #     fake_left_left_child = fake_value()
-    #     h._data.append(fake_root)
-    #     h._data.append(fake_left_child)
-    #     h._data.append(fake_right_child)
-    #     h._data.append(fake_left_left_child)
-    #     self.assertTrue(h._has_right_child(0))
-    #     self.assertFalse(h._has_right_child(1))
-    #     self.assertFalse(h._has_right_child(2))
-    #     self.assertFalse(h._has_right_child(3))
-    #     self.assertFalse(h._has_right_child(4))
+    def test_has_right_child(self):
+        """
+        True when an element's right child isn't None. Otherwise False.
+        """
+        h = MaxHeap()
+        fake_root = fake_value()
+        fake_left_child = fake_value()
+        fake_right_child = fake_value()
+        fake_left_left_child = fake_value()
+        h._data.append(fake_root)
+        h._data.append(fake_left_child)
+        h._data.append(fake_right_child)
+        h._data.append(fake_left_left_child)
+        self.assertTrue(h._has_right_child(0))
+        self.assertFalse(h._has_right_child(1))
+        self.assertFalse(h._has_right_child(2))
+        self.assertFalse(h._has_right_child(3))
+        self.assertFalse(h._has_right_child(4))
 
     """
     Index of the greater child.
@@ -414,48 +414,48 @@ class TestMaxHeap(unittest.TestCase):
     Therefore, it's handy to be able to determine the index of the larger child.
     """
 
-    # def test_greater_child_index_one(self):
-    #     """
-    #     The 'greater child index' of an element without children is None.
-    #     """
-    #     h = MaxHeap()
-    #     h._data.append('fake')
-    #     self.assertIsNone(h._greater_child_index(0))
+    def test_greater_child_index_one(self):
+        """
+        The 'greater child index' of an element without children is None.
+        """
+        h = MaxHeap()
+        h._data.append('fake')
+        self.assertIsNone(h._greater_child_index(0))
 
-    # def test_greater_child_index_left_only(self):
-    #     """
-    #     The 'greater child index' of an element with just a left child (no right
-    #     child) returns the index of that left child.
-    #     """
-    #     h = MaxHeap()
-    #     h._data.append('fake')
-    #     h._data.append('fake')
-    #     self.assertEqual(1, h._greater_child_index(0))
+    def test_greater_child_index_left_only(self):
+        """
+        The 'greater child index' of an element with just a left child (no right
+        child) returns the index of that left child.
+        """
+        h = MaxHeap()
+        h._data.append('fake')
+        h._data.append('fake')
+        self.assertEqual(1, h._greater_child_index(0))
 
-    # def test_greater_child_index_left(self):
-    #     """
-    #     The 'greater child index' of an element with a left and right child, is
-    #     the index of the left child when it has a value greater than or equal to
-    #     the right child.
-    #     """
-    #     h = MaxHeap()
-    #     h._data.append(10)
-    #     h._data.append(5)
-    #     h._data.append(1)
-    #     self.assertEqual(1, h._greater_child_index(0))
+    def test_greater_child_index_left(self):
+        """
+        The 'greater child index' of an element with a left and right child, is
+        the index of the left child when it has a value greater than or equal to
+        the right child.
+        """
+        h = MaxHeap()
+        h._data.append(10)
+        h._data.append(5)
+        h._data.append(1)
+        self.assertEqual(1, h._greater_child_index(0))
 
-    # def test_greater_child_index_right(self):
-    #     """
-    #     The 'greater child index' of an element with a left and right child, is
-    #     the index of the right child when it has a larger value than the left child.
-    #     Hint: Refine your logic. What are the possible states? No children, a
-    #           left but no right, or a left and a right.
-    #     """
-    #     h = MaxHeap()
-    #     h._data.append(10)
-    #     h._data.append(1)
-    #     h._data.append(5)
-    #     self.assertEqual(2, h._greater_child_index(0))
+    def test_greater_child_index_right(self):
+        """
+        The 'greater child index' of an element with a left and right child, is
+        the index of the right child when it has a larger value than the left child.
+        Hint: Refine your logic. What are the possible states? No children, a
+              left but no right, or a left and a right.
+        """
+        h = MaxHeap()
+        h._data.append(10)
+        h._data.append(1)
+        h._data.append(5)
+        self.assertEqual(2, h._greater_child_index(0))
 
     """
     The max-heap property. Obey.
@@ -468,81 +468,81 @@ class TestMaxHeap(unittest.TestCase):
     at that index and the values of the immediate children at that index.
     """
 
-    # def test_heap_property_one(self):
-    #     """
-    #     A heap with one element obeys the max-heap property.
-    #     """
-    #     h = MaxHeap()
-    #     h._data.append('fake')
-    #     self.assertTrue(h._obeys_heap_property_at_index(0))
+    def test_heap_property_one(self):
+        """
+        A heap with one element obeys the max-heap property.
+        """
+        h = MaxHeap()
+        h._data.append('fake')
+        self.assertTrue(h._obeys_heap_property_at_index(0))
 
-    # def test_heap_property_two_violate(self):
-    #     """
-    #     A heap with two elements, with a parent value less than its left child's
-    #     value violates the max-heap property.
-    #     """
-    #     h = MaxHeap()
-    #     h._data.append(5)
-    #     h._data.append(10)
-    #     # Index 0 (root / value 5) has a child with a value 10, so it violates.
-    #     self.assertFalse(h._obeys_heap_property_at_index(0))
-    #     # No children at 1, so it obeys here:
-    #     self.assertTrue(h._obeys_heap_property_at_index(1))
+    def test_heap_property_two_violate(self):
+        """
+        A heap with two elements, with a parent value less than its left child's
+        value violates the max-heap property.
+        """
+        h = MaxHeap()
+        h._data.append(5)
+        h._data.append(10)
+        # Index 0 (root / value 5) has a child with a value 10, so it violates.
+        self.assertFalse(h._obeys_heap_property_at_index(0))
+        # No children at 1, so it obeys here:
+        self.assertTrue(h._obeys_heap_property_at_index(1))
 
-    # def test_heap_property_two_obey(self):
-    #     """
-    #     A heap with two elements, with a parent value greater than its left
-    #     child's value obeys the max-heap property.
-    #     """
-    #     h = MaxHeap()
-    #     h._data.append(10)
-    #     h._data.append(5)
-    #     self.assertTrue(h._obeys_heap_property_at_index(0))
-    #     self.assertTrue(h._obeys_heap_property_at_index(1))
+    def test_heap_property_two_obey(self):
+        """
+        A heap with two elements, with a parent value greater than its left
+        child's value obeys the max-heap property.
+        """
+        h = MaxHeap()
+        h._data.append(10)
+        h._data.append(5)
+        self.assertTrue(h._obeys_heap_property_at_index(0))
+        self.assertTrue(h._obeys_heap_property_at_index(1))
 
-    # def test_heap_property_three_violate(self):
-    #     """
-    #     A heap with three elements, with a parent value less than its right
-    #     child's value or its left child's value violates the max-heap property.
-    #     Hint: Refine your logic. What are the possible states? No children,
-    #     a left child, or both a left and right child.
-    #     """
-    #     h = MaxHeap()
-    #     h._data.append(10)
-    #     h._data.append(5)
-    #     h._data.append(42)
-    #     self.assertFalse(h._obeys_heap_property_at_index(0))
-    #     self.assertTrue(h._obeys_heap_property_at_index(1))
-    #     self.assertTrue(h._obeys_heap_property_at_index(2))
-    #     h._data = []
-    #     h._data.append(10)
-    #     h._data.append(42)
-    #     h._data.append(5)
-    #     self.assertFalse(h._obeys_heap_property_at_index(0))
-    #     self.assertTrue(h._obeys_heap_property_at_index(1))
-    #     self.assertTrue(h._obeys_heap_property_at_index(2))
+    def test_heap_property_three_violate(self):
+        """
+        A heap with three elements, with a parent value less than its right
+        child's value or its left child's value violates the max-heap property.
+        Hint: Refine your logic. What are the possible states? No children,
+        a left child, or both a left and right child.
+        """
+        h = MaxHeap()
+        h._data.append(10)
+        h._data.append(5)
+        h._data.append(42)
+        self.assertFalse(h._obeys_heap_property_at_index(0))
+        self.assertTrue(h._obeys_heap_property_at_index(1))
+        self.assertTrue(h._obeys_heap_property_at_index(2))
+        h._data = []
+        h._data.append(10)
+        h._data.append(42)
+        h._data.append(5)
+        self.assertFalse(h._obeys_heap_property_at_index(0))
+        self.assertTrue(h._obeys_heap_property_at_index(1))
+        self.assertTrue(h._obeys_heap_property_at_index(2))
 
-    # def test_heap_property_three_obey(self):
-    #     """
-    #     A heap with three elements, with a parent value greater than its left
-    #     child's value and its right child's value obeys the max-heap property.
-    #     Hint: Refine your logic. What are the possible states? No children,
-    #     a left child, or both a left and right child.
-    #     """
-    #     h = MaxHeap()
-    #     h._data.append(10)
-    #     h._data.append(5)
-    #     h._data.append(1)
-    #     self.assertTrue(h._obeys_heap_property_at_index(0))
-    #     self.assertTrue(h._obeys_heap_property_at_index(1))
-    #     self.assertTrue(h._obeys_heap_property_at_index(2))
-    #     h._data = []
-    #     h._data.append(10)
-    #     h._data.append(1)
-    #     h._data.append(5)
-    #     self.assertTrue(h._obeys_heap_property_at_index(0))
-    #     self.assertTrue(h._obeys_heap_property_at_index(1))
-    #     self.assertTrue(h._obeys_heap_property_at_index(2))
+    def test_heap_property_three_obey(self):
+        """
+        A heap with three elements, with a parent value greater than its left
+        child's value and its right child's value obeys the max-heap property.
+        Hint: Refine your logic. What are the possible states? No children,
+        a left child, or both a left and right child.
+        """
+        h = MaxHeap()
+        h._data.append(10)
+        h._data.append(5)
+        h._data.append(1)
+        self.assertTrue(h._obeys_heap_property_at_index(0))
+        self.assertTrue(h._obeys_heap_property_at_index(1))
+        self.assertTrue(h._obeys_heap_property_at_index(2))
+        h._data = []
+        h._data.append(10)
+        h._data.append(1)
+        h._data.append(5)
+        self.assertTrue(h._obeys_heap_property_at_index(0))
+        self.assertTrue(h._obeys_heap_property_at_index(1))
+        self.assertTrue(h._obeys_heap_property_at_index(2))
 
     """
     Swap. Given the indexes of two items, swap their positions in the data list.

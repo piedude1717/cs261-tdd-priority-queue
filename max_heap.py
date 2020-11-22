@@ -19,32 +19,70 @@ class MaxHeap:
     def _last_index(self):
         return len(self._data) - 1
 
-    def _value_at(self, index):
-        if 0 <= index <= self._size():
-            return self._data[index]
+    def _value_at(self, input_index):
+        if 0 <= input_index <= self._size():
+            return self._data[input_index]
         else:
             raise IndexError
 
-    def _left_child_index(self, index):
-        return (2 * index) + 1
+    def _left_child_index(self, input_index):
+        return (2 * input_index) + 1
 
-    def _right_child_index(self, index):
-        return (2 * index) + 2
+    def _right_child_index(self, input_index):
+        return (2 * input_index) + 2
 
-    def _parent_index(self, index):
-        return (index - 1) // 2
+    def _parent_index(self, input_index):
+        return (input_index - 1) // 2
 
-    def _parent(self, index):
-        return self._value_at(self._parent_index(index))
+    def _parent(self, input_index):
+        return self._value_at(self._parent_index(input_index))
 
-    def _left_child(self, index):
-        if self._size() < self._left_child_index(index):
+    def _left_child(self, input_index):
+        if self._size() < self._left_child_index(input_index):
             return None
-        elif self._left_child_index(index) < self._size():
-            return self._data[self._left_child_index(index)]
+        elif self._left_child_index(input_index) < self._size():
+            return self._data[self._left_child_index(input_index)]
 
-    def _right_child(self, index):
-        if self._size() < self._right_child_index(index):
+    def _right_child(self, input_index):
+        if self._size() < self._right_child_index(input_index):
             return None
-        elif self._right_child_index(index) < self._size():
-            return self._data[self._right_child_index(index)]
+        elif self._right_child_index(input_index) < self._size():
+            return self._data[self._right_child_index(input_index)]
+
+    def _has_left_child(self, input_index):
+        return self._left_child(input_index) is not None
+
+    def _has_right_child(self, input_index):
+        return self._right_child(input_index) is not None
+
+    def _greater_child_index(self, input_index):
+        if self._has_right_child(input_index) is None and self._has_left_child(input_index) is None:
+            return None
+
+        elif self._right_child(input_index) is not None and self._left_child(input_index) is not None:
+            if self._left_child(input_index) < self._right_child(input_index):
+                return self._right_child_index(input_index)
+
+            else:
+                return self._left_child_index(input_index)
+
+        elif self._right_child(input_index) is None and self._left_child(input_index) is not None:
+            return self._left_child_index(input_index)
+
+    def _obeys_heap_property_at_index(self, input_index):
+        if self._left_child(input_index) is None and self._right_child(input_index) is None:
+            return True
+
+        elif self._left_child(input_index) is None:
+            if input_index >= self._right_child(input_index):
+                return True
+
+        elif self._right_child(input_index) is None:
+            if self._data[input_index] >= self._left_child(input_index):
+                return True
+
+        elif self._data[input_index] >= self._left_child(input_index) and self._data[input_index] >= self._right_child(input_index):
+            return True
+
+   def swap
+
