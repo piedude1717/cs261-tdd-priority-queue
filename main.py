@@ -1,5 +1,5 @@
 # PriorityQueue Scratchpad
-# YOUR NAME
+# Abhimanyu, bais
 # Use this as a "scratchpad" to tinker with your job, priority queue, and heap.
 
 from job import Job
