@@ -6,6 +6,22 @@
 
 from max_heap import MaxHeap
 
+
 class PriorityQueue:
 
+    heap = MaxHeap()
+
+
+class PriorityQueue:
+    def __init__(self):
+        self.heap = MaxHeap()
     pass
+
+    def enqueue(self, value):
+        return self.heap.insert(value)
+
+    def dequeue(self):
+        return self.heap.delete()
+
+    def is_empty(self):
+        return self.heap._is_empty()
