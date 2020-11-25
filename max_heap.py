@@ -110,6 +110,18 @@ class MaxHeap:
         self._data.append(input_data)
         self._sift_up(self._last_index())
 
+    def delete(self):
+        if self._is_empty():
+            return None
+        else:
+            self._swap(0, self._size()-1)
+            remove = self._data.pop()
+            self._sift_down(0)
+            return remove
+
+
+
+
 
 
 
