@@ -100,6 +100,12 @@ class MaxHeap:
         self._swap(input_index, greater)
         return self._sift_down(greater)
 
+    def _sift_up(self, input_index):
+        if input_index == 0 or self._obeys_heap_property_at_index(self._parent_index(input_index)):
+            return
+        self._swap(input_index, self._parent_index(input_index))
+        self._sift_up(self._parent_index(input_index))
+
 
 
 

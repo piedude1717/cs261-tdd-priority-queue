@@ -750,170 +750,172 @@ class TestMaxHeap(unittest.TestCase):
     where it is less than its parent.
     """
 
-    # def test_sift_up_one(self):
-    #     """
-    #     Sifting up the root is easy.
-    #     Hint: Be naive for now.
-    #     """
-    #     h = MaxHeap()
-    #     h._data.append(1)
-    #     h._sift_up(0)
-    #     self.assertEqual(1, h._data[0])
+    def test_sift_up_one(self):
+        """
+        Sifting up the root is easy.
+        Hint: Be naive for now.
+        """
+        h = MaxHeap()
+        h._data.append(1)
+        h._sift_up(0)
+        self.assertEqual(1, h._data[0])
 
-    # def test_sift_up_two_stable(self):
-    #     """
-    #     Sifting up an element in a two-element heap, when the element is smaller
-    #     than its parent, is easy.
-    #     Hint: Be naive for now.
-    #     """
-    #     h = MaxHeap()
-    #     h._data.append(5)
-    #     h._data.append(1)
-    #     # Sifting up the root of this tree doesn't change anything.
-    #     h._sift_up(0)
-    #     self.assertEqual(5, h._data[0])
-    #     self.assertEqual(1, h._data[1])
-    #     # Sifting up the last element of this tree doesn't change anything, either.
-    #     h._sift_up(1)
-    #     self.assertEqual(5, h._data[0])
-    #     self.assertEqual(1, h._data[1])
+    def test_sift_up_two_stable(self):
+        """
+        Sifting up an element in a two-element heap, when the element is smaller
+        than its parent, is easy.
+        Hint: Be naive for now.
+        """
+        h = MaxHeap()
+        h._data.append(5)
+        h._data.append(1)
+        # Sifting up the root of this tree doesn't change anything.
+        h._sift_up(0)
+        self.assertEqual(5, h._data[0])
+        self.assertEqual(1, h._data[1])
+        # Sifting up the last element of this tree doesn't change anything, either.
+        h._sift_up(1)
+        self.assertEqual(5, h._data[0])
+        self.assertEqual(1, h._data[1])
 
-    # def test_sift_up_three_stable(self):
-    #     """
-    #     Sifting up an element in a three-element heap, when the element is smaller
-    #     than its parent, is easy.
-    #     Hint: Be naive for now.
-    #     """
-    #     h = MaxHeap()
-    #     h._data.append(10)
-    #     h._data.append(5)
-    #     h._data.append(1)
-    #     # Sifting up the root of this tree doesn't change anything.
-    #     h._sift_up(0)
-    #     self.assertEqual(10, h._data[0])
-    #     self.assertEqual(5, h._data[1])
-    #     self.assertEqual(1, h._data[2])
-    #     # Sifting up the left leaf of this tree doesn't change anything.
-    #     h._sift_up(1)
-    #     self.assertEqual(10, h._data[0])
-    #     self.assertEqual(5, h._data[1])
-    #     self.assertEqual(1, h._data[2])
-    #     # Sifting up the right leaft of this tree doesn't change anything.
-    #     h._sift_up(2)
-    #     self.assertEqual(10, h._data[0])
-    #     self.assertEqual(5, h._data[1])
-    #     self.assertEqual(1, h._data[2])
+    def test_sift_up_three_stable(self):
+        """
+        Sifting up an element in a three-element heap, when the element is smaller
+        than its parent, is easy.
+        Hint: Be naive for now.
+        """
+        h = MaxHeap()
+        h._data.append(10)
+        h._data.append(5)
+        h._data.append(1)
+        # Sifting up the root of this tree doesn't change anything.
+        h._sift_up(0)
+        self.assertEqual(10, h._data[0])
+        self.assertEqual(5, h._data[1])
+        self.assertEqual(1, h._data[2])
+        # Sifting up the left leaf of this tree doesn't change anything.
+        h._sift_up(1)
+        self.assertEqual(10, h._data[0])
+        self.assertEqual(5, h._data[1])
+        self.assertEqual(1, h._data[2])
+        # Sifting up the right leaft of this tree doesn't change anything.
+        h._sift_up(2)
+        self.assertEqual(10, h._data[0])
+        self.assertEqual(5, h._data[1])
+        self.assertEqual(1, h._data[2])
 
-    # def test_sift_up_two_unstable(self):
-    #     """
-    #     Sifting up an element in a two-element heap, when the element is larger
-    #     than its parent swaps the element with its parent.
-    #     Hint: A little more genuine now. Refine your logic. Use your abstractions.
-    #     """
-    #     h = MaxHeap()
-    #     h._data.append(1)
-    #     h._data.append(5)
-    #     # Sifting up the leaf of this tree swaps it with its parent.
-    #     h._sift_up(1)
-    #     self.assertEqual(5, h._data[0])
-    #     self.assertEqual(1, h._data[1])
+    def test_sift_up_two_unstable(self):
+        """
+        Sifting up an element in a two-element heap, when the element is larger
+        than its parent swaps the element with its parent.
+        Hint: A little more genuine now. Refine your logic. Use your abstractions.
+        """
+        h = MaxHeap()
+        h._data.append(1)
+        h._data.append(5)
+        # Sifting up the leaf of this tree swaps it with its parent.
+        print(h._data)
+        h._sift_up(1)
+        print(h._data)
+        self.assertEqual(5, h._data[0])
+        self.assertEqual(1, h._data[1])
 
-    # def test_sift_up_three_unstable_left(self):
-    #     """
-    #     Sifting up an element in a three-element heap, when the element is
-    #     larger than its parent, swaps it with its parent.
-    #     """
-    #     h = MaxHeap()
-    #     h._data.append(1)
-    #     h._data.append(10)
-    #     h._data.append(5)
-    #     # Sifting up the left leaf of this tree swaps it with its parent.
-    #     h._sift_up(1)
-    #     self.assertEqual(10, h._data[0])
-    #     self.assertEqual(1, h._data[1])
-    #     self.assertEqual(5, h._data[2])
+    def test_sift_up_three_unstable_left(self):
+        """
+        Sifting up an element in a three-element heap, when the element is
+        larger than its parent, swaps it with its parent.
+        """
+        h = MaxHeap()
+        h._data.append(1)
+        h._data.append(10)
+        h._data.append(5)
+        # Sifting up the left leaf of this tree swaps it with its parent.
+        h._sift_up(1)
+        self.assertEqual(10, h._data[0])
+        self.assertEqual(1, h._data[1])
+        self.assertEqual(5, h._data[2])
 
-    # def test_sift_up_three_unstable_right(self):
-    #     """
-    #     Sifting up an element in a three-element heap, when the leaf is
-    #     greater than its parent, swaps it with its parent.
-    #     Hint: Refine your logic.
-    #     """
-    #     h = MaxHeap()
-    #     h._data.append(1)
-    #     h._data.append(5)
-    #     h._data.append(10)
-    #     # Sifting up the right leaf of this tree swaps it with its parent.
-    #     h._sift_up(2)
-    #     self.assertEqual(10, h._data[0])
-    #     self.assertEqual(5, h._data[1])
-    #     self.assertEqual(1, h._data[2])
+    def test_sift_up_three_unstable_right(self):
+        """
+        Sifting up an element in a three-element heap, when the leaf is
+        greater than its parent, swaps it with its parent.
+        Hint: Refine your logic.
+        """
+        h = MaxHeap()
+        h._data.append(1)
+        h._data.append(5)
+        h._data.append(10)
+        # Sifting up the right leaf of this tree swaps it with its parent.
+        h._sift_up(2)
+        self.assertEqual(10, h._data[0])
+        self.assertEqual(5, h._data[1])
+        self.assertEqual(1, h._data[2])
 
     # But, in a larger heap, an element may need to be sifted up further than
     # one level. Time to be recursive.
 
-    # def test_sift_up_to_root(self):
-    #     """
-    #     Sifting up an element swaps it with its parent when appropriate, and
-    #     continues to sift up that element from its new position, until it either
-    #     becomes the root or its parent's value is larger than its value.
-    #     Hint: Think of the stopping condition first.
-    #     """
-    #     h = MaxHeap()
-    #     h._data.append(10)
-    #     h._data.append(9)
-    #     h._data.append(8)
-    #     h._data.append(7)
-    #     h._data.append(6)
-    #     h._data.append(5)
-    #     h._data.append(4)
-    #     h._data.append(3)
-    #     h._data.append(2)
-    #     h._data.append(1)
-    #     h._data.append(42)
-    #     h._sift_up(10)
-    #     self.assertEqual(42, h._data[0])
-    #     self.assertEqual(10, h._data[1])
-    #     self.assertEqual(8, h._data[2])
-    #     self.assertEqual(7, h._data[3])
-    #     self.assertEqual(9, h._data[4])
-    #     self.assertEqual(5, h._data[5])
-    #     self.assertEqual(4, h._data[6])
-    #     self.assertEqual(3, h._data[7])
-    #     self.assertEqual(2, h._data[8])
-    #     self.assertEqual(1, h._data[9])
-    #     self.assertEqual(6, h._data[10])
+    def test_sift_up_to_root(self):
+        """
+        Sifting up an element swaps it with its parent when appropriate, and
+        continues to sift up that element from its new position, until it either
+        becomes the root or its parent's value is larger than its value.
+        Hint: Think of the stopping condition first.
+        """
+        h = MaxHeap()
+        h._data.append(10)
+        h._data.append(9)
+        h._data.append(8)
+        h._data.append(7)
+        h._data.append(6)
+        h._data.append(5)
+        h._data.append(4)
+        h._data.append(3)
+        h._data.append(2)
+        h._data.append(1)
+        h._data.append(42)
+        h._sift_up(10)
+        self.assertEqual(42, h._data[0])
+        self.assertEqual(10, h._data[1])
+        self.assertEqual(8, h._data[2])
+        self.assertEqual(7, h._data[3])
+        self.assertEqual(9, h._data[4])
+        self.assertEqual(5, h._data[5])
+        self.assertEqual(4, h._data[6])
+        self.assertEqual(3, h._data[7])
+        self.assertEqual(2, h._data[8])
+        self.assertEqual(1, h._data[9])
+        self.assertEqual(6, h._data[10])
 
-    # def test_sift_up(self):
-    #     """
-    #     Sifting up an element swaps it with its parent when appropriate, and
-    #     continues to sift up that element from its new position, until it either
-    #     becomes the root or its parent's value is larger than its value.
-    #     """
-    #     h = MaxHeap()
-    #     h._data.append(600)
-    #     h._data.append(500)
-    #     h._data.append(8)
-    #     h._data.append(7)
-    #     h._data.append(6)
-    #     h._data.append(5)
-    #     h._data.append(4)
-    #     h._data.append(3)
-    #     h._data.append(2)
-    #     h._data.append(1)
-    #     h._data.append(42)
-    #     h._sift_up(10)
-    #     self.assertEqual(600, h._data[0])
-    #     self.assertEqual(500, h._data[1])
-    #     self.assertEqual(8, h._data[2])
-    #     self.assertEqual(7, h._data[3])
-    #     self.assertEqual(42, h._data[4])
-    #     self.assertEqual(5, h._data[5])
-    #     self.assertEqual(4, h._data[6])
-    #     self.assertEqual(3, h._data[7])
-    #     self.assertEqual(2, h._data[8])
-    #     self.assertEqual(1, h._data[9])
-    #     self.assertEqual(6, h._data[10])
+    def test_sift_up(self):
+        """
+        Sifting up an element swaps it with its parent when appropriate, and
+        continues to sift up that element from its new position, until it either
+        becomes the root or its parent's value is larger than its value.
+        """
+        h = MaxHeap()
+        h._data.append(600)
+        h._data.append(500)
+        h._data.append(8)
+        h._data.append(7)
+        h._data.append(6)
+        h._data.append(5)
+        h._data.append(4)
+        h._data.append(3)
+        h._data.append(2)
+        h._data.append(1)
+        h._data.append(42)
+        h._sift_up(10)
+        self.assertEqual(600, h._data[0])
+        self.assertEqual(500, h._data[1])
+        self.assertEqual(8, h._data[2])
+        self.assertEqual(7, h._data[3])
+        self.assertEqual(42, h._data[4])
+        self.assertEqual(5, h._data[5])
+        self.assertEqual(4, h._data[6])
+        self.assertEqual(3, h._data[7])
+        self.assertEqual(2, h._data[8])
+        self.assertEqual(1, h._data[9])
+        self.assertEqual(6, h._data[10])
 
     """
     Inserting a value. It's easy now.
