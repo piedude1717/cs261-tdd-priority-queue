@@ -926,219 +926,219 @@ class TestMaxHeap(unittest.TestCase):
     Hint: Two steps. Add the new value, and sift up. That's it.
     """
 
-    # def test_insert_empty(self):
-    #     """
-    #     An empty MaxHeap stores a new value as the root. No algorithms necessary.
-    #     """
-    #     h = MaxHeap()
-    #     h.insert(10)
-    #     self.assertEqual(10, h._data[0])
+    def test_insert_empty(self):
+        """
+        An empty MaxHeap stores a new value as the root. No algorithms necessary.
+        """
+        h = MaxHeap()
+        h.insert(10)
+        self.assertEqual(10, h._data[0])
 
-    # def test_insert_smaller_one(self):
-    #     """
-    #     An inserted value that is smaller than the root becomes the left child.
-    #     """
-    #     h = MaxHeap()
-    #     h.insert(10)
-    #     h.insert(5)
-    #     self.assertEqual(10, h._data[0])
-    #     self.assertEqual(5, h._data[1])
+    def test_insert_smaller_one(self):
+        """
+        An inserted value that is smaller than the root becomes the left child.
+        """
+        h = MaxHeap()
+        h.insert(10)
+        h.insert(5)
+        self.assertEqual(10, h._data[0])
+        self.assertEqual(5, h._data[1])
 
-    # def test_insert_larger_one(self):
-    #     """
-    #     An inserted value that is larger than the root becomes the root, and the
-    #     root becomes the left child.
-    #     """
-    #     h = MaxHeap()
-    #     h.insert(10)
-    #     h.insert(15)
-    #     self.assertEqual(15, h._data[0])
-    #     self.assertEqual(10, h._data[1])
+    def test_insert_larger_one(self):
+        """
+        An inserted value that is larger than the root becomes the root, and the
+        root becomes the left child.
+        """
+        h = MaxHeap()
+        h.insert(10)
+        h.insert(15)
+        self.assertEqual(15, h._data[0])
+        self.assertEqual(10, h._data[1])
 
-    # def test_insert_smaller_two(self):
-    #     """
-    #     An inserted value that is smaller than the root of a two-element MaxHeap
-    #     becomes the right child.
-    #       10           10
-    #      /      =>    /  \
-    #     5            5    1
-    #     """
-    #     h = MaxHeap()
-    #     h.insert(10)
-    #     h.insert(5)
-    #     h.insert(1)
-    #     self.assertEqual(10, h._data[0])
-    #     self.assertEqual(5, h._data[1])
-    #     self.assertEqual(1, h._data[2])
+    def test_insert_smaller_two(self):
+        """
+        An inserted value that is smaller than the root of a two-element MaxHeap
+        becomes the right child.
+          10           10
+         /      =>    /  \
+        5            5    1
+        """
+        h = MaxHeap()
+        h.insert(10)
+        h.insert(5)
+        h.insert(1)
+        self.assertEqual(10, h._data[0])
+        self.assertEqual(5, h._data[1])
+        self.assertEqual(1, h._data[2])
 
-    # def test_insert_larger_two(self):
-    #     """
-    #     An inserted value that is larger than the root becomes the new root, and
-    #     the old root becomes the last element in the tree.
-    #       10           15
-    #      /      =>    /  \
-    #     5            5    10
-    #     Hint: Remember, insertion is just two steps. Append the new leaf to the
-    #     end, and sift that new leaf up.
-    #     """
-    #     h = MaxHeap()
-    #     h.insert(10)
-    #     h.insert(5)
-    #     h.insert(15)
-    #     self.assertEqual(15, h._data[0])
-    #     self.assertEqual(5, h._data[1])
-    #     self.assertEqual(10, h._data[2])
+    def test_insert_larger_two(self):
+        """
+        An inserted value that is larger than the root becomes the new root, and
+        the old root becomes the last element in the tree.
+          10           15
+         /      =>    /  \
+        5            5    10
+        Hint: Remember, insertion is just two steps. Append the new leaf to the
+        end, and sift that new leaf up.
+        """
+        h = MaxHeap()
+        h.insert(10)
+        h.insert(5)
+        h.insert(15)
+        self.assertEqual(15, h._data[0])
+        self.assertEqual(5, h._data[1])
+        self.assertEqual(10, h._data[2])
 
-    # def test_insert_stable(self):
-    #     """
-    #     An inserted value that is smaller than its parent will remain in the new
-    #     leaf position.
-    #       10            10
-    #      /  \   =>    /    \
-    #     8    4       8      4
-    #                 / \    / \
-    #                3   4  1   2
-    #     """
-    #     h = MaxHeap()
-    #     h.insert(10)
-    #     h.insert(8)
-    #     h.insert(4)
-    #     h.insert(3)
-    #     h.insert(4)
-    #     h.insert(1)
-    #     h.insert(2)
-    #     self.assertEqual(10, h._data[0])
-    #     self.assertEqual(8, h._data[1])
-    #     self.assertEqual(4, h._data[2])
-    #     self.assertEqual(3, h._data[3])
-    #     self.assertEqual(4, h._data[4])
-    #     self.assertEqual(1, h._data[5])
-    #     self.assertEqual(2, h._data[6])
+    def test_insert_stable(self):
+        """
+        An inserted value that is smaller than its parent will remain in the new
+        leaf position.
+          10            10
+         /  \   =>    /    \
+        8    4       8      4
+                    / \    / \
+                   3   4  1   2
+        """
+        h = MaxHeap()
+        h.insert(10)
+        h.insert(8)
+        h.insert(4)
+        h.insert(3)
+        h.insert(4)
+        h.insert(1)
+        h.insert(2)
+        self.assertEqual(10, h._data[0])
+        self.assertEqual(8, h._data[1])
+        self.assertEqual(4, h._data[2])
+        self.assertEqual(3, h._data[3])
+        self.assertEqual(4, h._data[4])
+        self.assertEqual(1, h._data[5])
+        self.assertEqual(2, h._data[6])
 
-    # def test_insert_unstable_three(self):
-    #     """
-    #     An inserted value that is larger than its parent should sift up until
-    #     the heap property is obeyed.
-    #       10            10
-    #      /  \   =>    /    \
-    #     8    4       9      4
-    #                 /
-    #                8
-    #     """
-    #     h = MaxHeap()
-    #     h.insert(10)
-    #     h.insert(8)
-    #     h.insert(4)
-    #     h.insert(9)
-    #     self.assertEqual(10, h._data[0])
-    #     self.assertEqual(9, h._data[1])
-    #     self.assertEqual(4, h._data[2])
-    #     self.assertEqual(8, h._data[3])
+    def test_insert_unstable_three(self):
+        """
+        An inserted value that is larger than its parent should sift up until
+        the heap property is obeyed.
+          10            10
+         /  \   =>    /    \
+        8    4       9      4
+                    /
+                   8
+        """
+        h = MaxHeap()
+        h.insert(10)
+        h.insert(8)
+        h.insert(4)
+        h.insert(9)
+        self.assertEqual(10, h._data[0])
+        self.assertEqual(9, h._data[1])
+        self.assertEqual(4, h._data[2])
+        self.assertEqual(8, h._data[3])
 
-    # def test_insert_unstable_root_three(self):
-    #     """
-    #     An inserted value that is larger than its parent should sift up until
-    #     the heap property is obeyed.
-    #       10            15
-    #      /  \   =>    /    \
-    #     8    4       10      4
-    #                 /
-    #                8
-    #     """
-    #     h = MaxHeap()
-    #     h.insert(10)
-    #     h.insert(8)
-    #     h.insert(4)
-    #     h.insert(15)
-    #     self.assertEqual(15, h._data[0])
-    #     self.assertEqual(10, h._data[1])
-    #     self.assertEqual(4, h._data[2])
-    #     self.assertEqual(8, h._data[3])
+    def test_insert_unstable_root_three(self):
+        """
+        An inserted value that is larger than its parent should sift up until
+        the heap property is obeyed.
+          10            15
+         /  \   =>    /    \
+        8    4       10      4
+                    /
+                   8
+        """
+        h = MaxHeap()
+        h.insert(10)
+        h.insert(8)
+        h.insert(4)
+        h.insert(15)
+        self.assertEqual(15, h._data[0])
+        self.assertEqual(10, h._data[1])
+        self.assertEqual(4, h._data[2])
+        self.assertEqual(8, h._data[3])
 
-    # def test_insert_unstable_four(self):
-    #     """
-    #     An inserted value that is larger than its parent should sift up until
-    #     the heap property is obeyed.
-    #         10              10
-    #        /  \   =>      /    \
-    #       8    4         9      4
-    #      /              / \
-    #     1              1   8
-    #     """
-    #     h = MaxHeap()
-    #     h.insert(10)
-    #     h.insert(8)
-    #     h.insert(4)
-    #     h.insert(1)
-    #     h.insert(9)
-    #     self.assertEqual(10, h._data[0])
-    #     self.assertEqual(9, h._data[1])
-    #     self.assertEqual(4, h._data[2])
-    #     self.assertEqual(1, h._data[3])
-    #     self.assertEqual(8, h._data[4])
+    def test_insert_unstable_four(self):
+        """
+        An inserted value that is larger than its parent should sift up until
+        the heap property is obeyed.
+            10              10
+           /  \   =>      /    \
+          8    4         9      4
+         /              / \
+        1              1   8
+        """
+        h = MaxHeap()
+        h.insert(10)
+        h.insert(8)
+        h.insert(4)
+        h.insert(1)
+        h.insert(9)
+        self.assertEqual(10, h._data[0])
+        self.assertEqual(9, h._data[1])
+        self.assertEqual(4, h._data[2])
+        self.assertEqual(1, h._data[3])
+        self.assertEqual(8, h._data[4])
 
-    # def test_insert_unstable_root_five(self):
-    #     """
-    #     An inserted value that is larger than its parent should sift up until
-    #     the heap property is obeyed.
-    #          10              15
-    #        /    \   =>     /    \
-    #       8      4        8      10
-    #      / \             / \    /
-    #     1   3           1   3  4
-    #     """
-    #     h = MaxHeap()
-    #     h.insert(10)
-    #     h.insert(8)
-    #     h.insert(4)
-    #     h.insert(1)
-    #     h.insert(3)
-    #     h.insert(15)
-    #     self.assertEqual(15, h._data[0])
-    #     self.assertEqual(8, h._data[1])
-    #     self.assertEqual(10, h._data[2])
-    #     self.assertEqual(1, h._data[3])
-    #     self.assertEqual(3, h._data[4])
-    #     self.assertEqual(4, h._data[5])
+    def test_insert_unstable_root_five(self):
+        """
+        An inserted value that is larger than its parent should sift up until
+        the heap property is obeyed.
+             10              15
+           /    \   =>     /    \
+          8      4        8      10
+         / \             / \    /
+        1   3           1   3  4
+        """
+        h = MaxHeap()
+        h.insert(10)
+        h.insert(8)
+        h.insert(4)
+        h.insert(1)
+        h.insert(3)
+        h.insert(15)
+        self.assertEqual(15, h._data[0])
+        self.assertEqual(8, h._data[1])
+        self.assertEqual(10, h._data[2])
+        self.assertEqual(1, h._data[3])
+        self.assertEqual(3, h._data[4])
+        self.assertEqual(4, h._data[5])
 
-    # def test_insert_unstable_six(self):
-    #     """
-    #     An inserted value that is larger than its parent should sift up until
-    #     the heap property is obeyed.
-    #          10               10
-    #        /    \   =>      /    \
-    #       8      4         8      9
-    #      / \    /         / \    / \
-    #     1   3  2         1   3  2   4
-    #     """
-    #     h = MaxHeap()
-    #     h.insert(10)
-    #     h.insert(8)
-    #     h.insert(4)
-    #     h.insert(1)
-    #     h.insert(3)
-    #     h.insert(2)
-    #     h.insert(9)
-    #     self.assertEqual(10, h._data[0])
-    #     self.assertEqual(8, h._data[1])
-    #     self.assertEqual(9, h._data[2])
-    #     self.assertEqual(1, h._data[3])
-    #     self.assertEqual(3, h._data[4])
-    #     self.assertEqual(2, h._data[5])
-    #     self.assertEqual(4, h._data[6])
+    def test_insert_unstable_six(self):
+        """
+        An inserted value that is larger than its parent should sift up until
+        the heap property is obeyed.
+             10               10
+           /    \   =>      /    \
+          8      4         8      9
+         / \    /         / \    / \
+        1   3  2         1   3  2   4
+        """
+        h = MaxHeap()
+        h.insert(10)
+        h.insert(8)
+        h.insert(4)
+        h.insert(1)
+        h.insert(3)
+        h.insert(2)
+        h.insert(9)
+        self.assertEqual(10, h._data[0])
+        self.assertEqual(8, h._data[1])
+        self.assertEqual(9, h._data[2])
+        self.assertEqual(1, h._data[3])
+        self.assertEqual(3, h._data[4])
+        self.assertEqual(2, h._data[5])
+        self.assertEqual(4, h._data[6])
 
-    # def test_insert_omg(self):
-    #     """
-    #     Lots of inserts should result in the MaxHeap obeying the max-heap
-    #     property at every node in the tree.
-    #     """
-    #     h = MaxHeap()
-    #     for _ in range(100):
-    #         h.insert(random.randint(1, 1000))
-    #     for i in reversed(range(len(h._data))):
-    #         if (i - 1) // 2 < 0:
-    #             break
-    #         self.assertTrue(h._data[i] <= h._data[(i - 1) // 2])
+    def test_insert_omg(self):
+        """
+        Lots of inserts should result in the MaxHeap obeying the max-heap
+        property at every node in the tree.
+        """
+        h = MaxHeap()
+        for _ in range(100):
+            h.insert(random.randint(1, 1000))
+        for i in reversed(range(len(h._data))):
+            if (i - 1) // 2 < 0:
+                break
+            self.assertTrue(h._data[i] <= h._data[(i - 1) // 2])
 
     """
     Deleting a value. Straightforward, but with a couple base cases.
