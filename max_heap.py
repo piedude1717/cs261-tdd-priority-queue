@@ -76,10 +76,14 @@ class MaxHeap:
         elif self._left_child(input_index) is None:
             if input_index >= self._right_child(input_index):
                 return True
+            else:
+                return False
 
         elif self._right_child(input_index) is None:
             if self._data[input_index] >= self._left_child(input_index):
                 return True
+            else:
+                return False
 
         elif self._data[input_index] >= self._left_child(input_index) and self._data[input_index] >= self._right_child(input_index):
             return True
@@ -90,10 +94,11 @@ class MaxHeap:
         self._data[second_input_index] = placeHolder1
 
     def _sift_down(self, input_index):
-        if self._obeys_heap_property_at_index(input_index) is False:
-            self._swap(self._greater_child_index(input_index), self._data[0])
-            self._sift_down()
-
+        if self._obeys_heap_property_at_index(input_index):
+            return
+        greater = self._greater_child_index(input_index)
+        self._swap(input_index, greater)
+        return self._sift_down(greater)
 
 
 
